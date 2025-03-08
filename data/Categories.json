@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Bike",
+    "children": [
+      {
+        "id": 2,
+        "name": "Bike 1",
+        "children": [
+          {
+            "id": 3,
+            "name": "Bike 1.1",
+            "children": []
+          },
+          {
+            "id": 4,
+            "name": "Bike 1.2",
+            "children": []
+          },
+          {
+            "id": 5,
+            "name": "Bike 1.3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Bike 2",
+        "children": []
+      },
+      {
+        "id": 7,
+        "name": "Bike 3",
+        "children": []
+      },
+      {
+        "id": 8,
+        "name": "Bike 4",
+        "children": []
+      },
+      {
+        "id": 9,
+        "name": "Bike 5",
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Ski",
+    "children": []
+  },
+  {
+    "id": 11,
+    "name": "Running",
+    "children": []
+  },
+  {
+    "id": 12,
+    "name": "Apparel & Equipment",
+    "children": []
+  },
+  {
+    "id": 13,
+    "name": "Travel",
+    "children": []
+  },
+  {
+    "id": 14,
+    "name": "Universe",
+    "children": []
+  }
+]
