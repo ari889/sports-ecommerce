@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/common/header/Header";
+import HeaderContextProvider from "@/providers/HeaderContextProvider";
 
 const BrandonGrotesque = localFont({
   src: "../fonts/Brandon_Grotesque_bold.otf",
@@ -16,8 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${BrandonGrotesque.variable} antialiased`}>
-        <Header />
-        {children}
+        <HeaderContextProvider>
+          <Header />
+          {children}
+        </HeaderContextProvider>
       </body>
     </html>
   );

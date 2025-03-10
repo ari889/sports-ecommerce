@@ -1,15 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
+import React, { MouseEvent, useEffect, useRef, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";
 import Categories from "./Categories";
+import { useHeaderContext } from "@/hooks/useHeaderContext";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
   const [showSearch, setShowSearch] = useState<boolean>(false);
   const formRef = useRef<HTMLFormElement>(null);
+  const { showSideBar, setShowSideBar } = useHeaderContext();
 
   const handleShowSearch = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -17,7 +18,7 @@ const Header = () => {
   };
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = (event: Event) => {
       if (formRef.current && !formRef.current.contains(event.target as Node)) {
         setShowSearch(false);
       }
@@ -34,25 +35,31 @@ const Header = () => {
     };
   }, [showSearch]);
 
+  const handleOpenSidebar = (e: MouseEvent) => {
+    e.preventDefault();
+
+    setShowSideBar((prev) => !prev);
+  };
+
   return (
     <header className="container flex flex-row-reverse lg:flex-row items-center">
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleOpenSidebar}
         className="flex flex-col items-center justify-center w-10 h-10"
       >
         <div
           className={`w-5 h-0.5 bg-[#1a1a1a] rounded-full transition-transform ${
-            isOpen ? "rotate-45 translate-y-1.5" : ""
+            showSideBar ? "rotate-45 translate-y-1.5" : ""
           }`}
         ></div>
         <div
           className={`w-5 h-0.5 bg-[#1a1a1a] rounded-full my-1 transition-opacity ${
-            isOpen ? "opacity-0" : "opacity-100"
+            showSideBar ? "opacity-0" : "opacity-100"
           }`}
         ></div>
         <div
           className={`w-5 h-0.5 bg-[#1a1a1a] rounded-full transition-transform ${
-            isOpen ? "-rotate-45 -translate-y-1.5" : ""
+            showSideBar ? "-rotate-45 -translate-y-1.5" : ""
           }`}
         ></div>
       </button>
