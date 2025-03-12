@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "path": "/images/cycles/1.png",
+    "name": "Title 1"
+  },
+  {
+    "id": 2,
+    "path": "/images/cycles/2.png",
+    "name": "Title 2"
+  },
+  {
+    "id": 3,
+    "path": "/images/cycles/3.png",
+    "name": "Title 3"
+  },
+  {
+    "id": 4,
+    "path": "/images/cycles/4.png",
+    "name": "Title 1"
+  }
+]
