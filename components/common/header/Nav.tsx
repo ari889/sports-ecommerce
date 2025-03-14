@@ -45,14 +45,14 @@ const Nav = ({
     setHoveredWidth(0); // Reset the width to 0
   };
   return (
-    <div className="relative">
+    <div className="relative hidden xl:block">
       <ul className="flex flex-row justify-center items-center h-10">
         {navItems.map((item: HeaderElementType, index: number) => (
-          <li key={item?.id} className="h-8 flex items-center">
+          <li key={item?.id} className="h-8 flex items-center text-center">
             {item?.isLink ? (
               <Link
                 href={item?.link ?? "#"}
-                className={`text-white ${anchorClass} uppercase font-bold px-5 leading-none`}
+                className={`text-white ${anchorClass} uppercase font-bold px-3 lg:px-5 leading-none`}
                 onMouseEnter={(event) => handleMouseEnter(index, event)}
                 onMouseLeave={handleMouseLeave}
               >

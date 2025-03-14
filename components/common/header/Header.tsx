@@ -28,7 +28,7 @@ const cartItems: HeaderElementType[] = [
 ];
 
 const Header = () => {
-  const { setCategories, setShowSideBar } = useHeaderContext();
+  const { showSideBar, setCategories, setShowSideBar } = useHeaderContext();
 
   const heandleSidebar = (e: MouseEvent, category: Category) => {
     e.preventDefault();
@@ -40,20 +40,51 @@ const Header = () => {
     }
   };
 
+  const handleOpenSidebar = (e: MouseEvent) => {
+    e.preventDefault();
+
+    setShowSideBar((prev) => !prev);
+  };
+
   return (
     <header className="sticky top-0 flex-col flex bg-transparent w-full z-[400]">
       <div className="h-[82px] px-[4.44vw] flex flex-row justify-between items-center">
-        <div className="bg-[#009fad]">
-          <Image
-            src="/images/logo/yeti.svg"
-            width={110}
-            height={42}
-            alt="Yeti Logo"
-          />
+        <div className="flex flex-row items-center justify-between gap-5">
+          <button
+            onClick={handleOpenSidebar}
+            className="flex flex-col items-center justify-center w-10 h-10 block xl:hidden"
+          >
+            <div
+              className={`w-5 h-0.5 bg-white rounded-full transition-transform ${
+                showSideBar ? "rotate-45 translate-y-1.5" : ""
+              }`}
+            ></div>
+            <div
+              className={`w-5 h-0.5 bg-white rounded-full my-1 transition-opacity ${
+                showSideBar ? "opacity-0" : "opacity-100"
+              }`}
+            ></div>
+            <div
+              className={`w-5 h-0.5 bg-white rounded-full transition-transform ${
+                showSideBar ? "-rotate-45 -translate-y-1.5" : ""
+              }`}
+            ></div>
+          </button>
+          <div className="bg-[#009fad]">
+            <Image
+              src="/images/logo/yeti.svg"
+              width={110}
+              height={42}
+              alt="Yeti Logo"
+            />
+          </div>
         </div>
         <Nav navItems={navItems} action={heandleSidebar} />
 
         <Nav navItems={cartItems} anchorClass="text-2xl" />
+        <div className="text-white text-2xl block xl:hidden">
+          <IoCartOutline />
+        </div>
       </div>
       <Categories />
     </header>
