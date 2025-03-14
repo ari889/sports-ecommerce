@@ -8,10 +8,16 @@ import { Category } from "@/types/category.types";
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useHeaderContext } from "@/hooks/useHeaderContext";
 
-export default function PrimaryMenu() {
-  const { categories, setCategories, setShowSideBar } = useHeaderContext();
+export default function PrimaryMenu({
+  categories,
+  setCategories,
+  closeSidebar,
+}: {
+  categories: Category[];
+  setCategories: React.Dispatch<React.SetStateAction<Category[]>>;
+  closeSidebar: (e: MouseEvent) => void;
+}) {
   const selectedCategory = categories[0];
 
   const handleSelectedCategory = (
@@ -39,12 +45,6 @@ export default function PrimaryMenu() {
     } else {
       setCategories((prev: Category[]) => prev.slice(0, prev.length - 1));
     }
-  };
-
-  const closeSidebar = (e: MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setShowSideBar(false);
   };
 
   return (

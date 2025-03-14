@@ -1,13 +1,18 @@
 "use client";
+import { Category } from "@/types/category.types";
+import { HeaderElementType } from "@/types/header.types";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { MouseEvent, useState } from "react";
 
 const Nav = ({
   navItems,
   anchorClass = "text-base",
+  action = () => {},
 }: {
-  navItems: { id: number; name: string | JSX.Element }[];
+  navItems: HeaderElementType[];
   anchorClass?: string;
+  action?: (e: MouseEvent, category: Category) => void;
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [hoveredWidth, setHoveredWidth] = useState<number>(0);
@@ -42,20 +47,30 @@ const Nav = ({
   return (
     <div className="relative">
       <ul className="flex flex-row justify-center items-center h-10">
-        {navItems.map(
-          (item: { id: number; name: string | JSX.Element }, index: number) => (
-            <li key={item?.id} className="h-8 flex items-center">
-              <a
-                href="#"
+        {navItems.map((item: HeaderElementType, index: number) => (
+          <li key={item?.id} className="h-8 flex items-center">
+            {item?.isLink ? (
+              <Link
+                href={item?.link ?? "#"}
                 className={`text-white ${anchorClass} uppercase font-bold px-5 leading-none`}
                 onMouseEnter={(event) => handleMouseEnter(index, event)}
                 onMouseLeave={handleMouseLeave}
               >
                 <span>{item?.name}</span> {/* Wrap text in <span> */}
+              </Link>
+            ) : (
+              <a
+                href="#"
+                className={`text-white ${anchorClass} uppercase font-bold px-5 leading-none`}
+                onMouseEnter={(event) => handleMouseEnter(index, event)}
+                onMouseLeave={handleMouseLeave}
+                onClick={(e: MouseEvent) => action(e, item as Category)}
+              >
+                <span>{item?.name}</span> {/* Wrap text in <span> */}
               </a>
-            </li>
-          )
-        )}
+            )}
+          </li>
+        ))}
       </ul>
 
       <motion.div
