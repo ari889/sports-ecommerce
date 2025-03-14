@@ -14,7 +14,7 @@ const Categories = () => {
           animate={{ opacity: 1 }} // Fade in
           exit={{ opacity: 0 }} // Fade out
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="fixed top-0 left-0 w-full h-full bg-black/40 flex flex-row"
+          className="fixed top-0 left-0 w-full h-full bg-black/40 flex flex-row z-50"
           onClick={() => setShowSideBar(false)}
         >
           <PrimaryMenu />
