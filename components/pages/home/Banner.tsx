@@ -5,7 +5,7 @@ const Banner = () => {
   return (
     <div
       style={{ backgroundImage: "url('/images/banner/banner1.jpg')" }}
-      className="bg-fixed object-cover bg-cover bg-left-top bg-no-repeat min-h-screen flex flex-col justify-center px-[4.44vw] items-start py-56 relative"
+      className="bg-fixed object-cover bg-cover bg-left-top bg-no-repeat min-h-screen flex flex-col justify-center px-[4.44vw] items-start py-56 relative -mt-[82px]"
     >
       <div className="border-l-4 pl-14 relative z-10">
         <h1 className="text-white text-[5vw] uppercase font-bold leading-[1.5em] tracking-[0.2em] pl-14">

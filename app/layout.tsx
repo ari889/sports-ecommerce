@@ -10,6 +10,11 @@ const BrandonGrotesque = localFont({
   weight: "900",
 });
 
+export const metadata = {
+  title: "Drais Bicycle",
+  description: "Drais Bicycle",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
