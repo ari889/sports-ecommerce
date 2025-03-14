@@ -52,7 +52,7 @@ const Header = () => {
         <div className="flex flex-row items-center justify-between gap-5">
           <button
             onClick={handleOpenSidebar}
-            className="flex flex-col items-center justify-center w-10 h-10 block xl:hidden"
+            className="flex flex-col items-center justify-center w-10 h-10 xl:hidden"
           >
             <div
               className={`w-5 h-0.5 bg-white rounded-full transition-transform ${
