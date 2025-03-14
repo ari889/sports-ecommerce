@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-const Slider = () => {
+const Banner = () => {
   return (
     <div
       style={{ backgroundImage: "url('/images/banner/banner1.jpg')" }}
@@ -32,4 +32,4 @@ const Slider = () => {
   );
 };
 
-export default Slider;
+export default Banner;

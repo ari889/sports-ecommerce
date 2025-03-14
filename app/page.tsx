@@ -1,11 +1,15 @@
 import ProductSlider from "@/components/pages/home/ProductSlider";
-import Slider from "@/components/pages/home/Slider";
+import Banner from "@/components/pages/home/Banner";
+import Blogs from "@/components/pages/home/Blogs";
+import Stories from "@/components/pages/home/Stories";
 
 export default function Home() {
   return (
     <>
-      <Slider />
+      <Banner />
       <ProductSlider />
+      <Blogs />
+      <Stories />
     </>
   );
 }

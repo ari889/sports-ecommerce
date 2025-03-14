@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Stagecoach Flannel",
+    "subtitle": "FUNCTIONAL FLANNEL FOR ALL-AROUND STYLE POINTS",
+    "banner": "/images/blogs/1.jpg"
+  },
+  {
+    "id": 2,
+    "title": "2024 Bike Sale",
+    "subtitle": "Sale",
+    "banner": "/images/blogs/2.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Apparel Sale",
+    "subtitle": "Up to 70% off",
+    "banner": "/images/blogs/3.jpg"
+  }
+]
