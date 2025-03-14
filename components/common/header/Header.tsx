@@ -7,13 +7,14 @@ import {
   IoLocationOutline,
   IoSearchSharp,
 } from "react-icons/io5";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { useState, MouseEvent } from "react";
 import Nav from "./Nav";
 import Categories from "./Categories";
 import data from "@/data/Categories.json";
 import { useHeaderContext } from "@/hooks/useHeaderContext";
 import { Category } from "@/types/category.types";
 import { HeaderElementType } from "@/types/header.types";
-import { MouseEvent } from "react";
 
 const navItems: HeaderElementType[] = [
   ...data,
@@ -21,38 +22,58 @@ const navItems: HeaderElementType[] = [
 ];
 
 const cartItems: HeaderElementType[] = [
-  { id: 1, name: <FaRegQuestionCircle />, isLink: true, link: "/faq" },
-  { id: 1, name: <IoLocationOutline />, isLink: true, link: "/faq" },
-  { id: 1, name: <FaRegUser />, isLink: true, link: "/faq" },
-  { id: 1, name: <IoCartOutline />, isLink: true, link: "/faq" },
+  { id: 2, name: <FaRegQuestionCircle />, isLink: true, link: "/faq" },
+  { id: 3, name: <IoLocationOutline />, isLink: true, link: "/location" },
+  { id: 4, name: <FaRegUser />, isLink: true, link: "/profile" },
+  { id: 5, name: <IoCartOutline />, isLink: true, link: "/cart" },
 ];
 
 const Header = () => {
   const { showSideBar, setCategories, setShowSideBar } = useHeaderContext();
+  const [scrolled, setScrolled] = useState(false);
 
-  const heandleSidebar = (e: MouseEvent, category: Category) => {
-    e.preventDefault();
-    if (category) {
-      setCategories((prev) => [...prev, category]);
-      setShowSideBar(true);
+  // Detect scroll position
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (latest > 50) {
+      setScrolled(true); // Set scroll state when scrolling down
     } else {
-      console.log("Cliked for search");
+      setScrolled(false); // Reset when scrolling up
     }
+  });
+
+  const handleSidebar = (e: MouseEvent, category: Category) => {
+    e.preventDefault();
+    if (category?.children?.length === 0) return;
+    setCategories((prev) => [...prev, category]);
+    setShowSideBar(true);
   };
 
   const handleOpenSidebar = (e: MouseEvent) => {
     e.preventDefault();
-
     setShowSideBar((prev) => !prev);
   };
 
   return (
-    <header className="sticky top-0 flex-col flex bg-transparent w-full z-[400]">
-      <div className="h-[82px] px-[4.44vw] flex flex-row justify-between items-center">
-        <div className="flex flex-row items-center justify-between gap-5">
+    <motion.header
+      className={`fixed top-0 left-0 w-full z-[400] transition-all duration-300 ease-out ${
+        scrolled ? "backdrop-blur-lg bg-black/70" : ""
+      }`}
+      initial={{ height: 82, backgroundColor: "rgba(0, 0, 0, 0)" }}
+      animate={{
+        height: scrolled ? 65 : 82,
+        backgroundColor: scrolled ? "rgba(0, 0, 0, 0.7)" : "rgba(0, 0, 0, 0)",
+      }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+    >
+      <div className="h-full px-[4.44vw] flex flex-row justify-between items-center">
+        {/* Left Section */}
+        <div className="flex flex-row items-center gap-5">
+          {/* Sidebar Toggle Button */}
           <button
             onClick={handleOpenSidebar}
-            className="flex flex-col items-center justify-center w-10 h-10 xl:hidden"
+            className="xl:hidden flex flex-col items-center justify-center w-10 h-10"
           >
             <div
               className={`w-5 h-0.5 bg-white rounded-full transition-transform ${
@@ -70,6 +91,8 @@ const Header = () => {
               }`}
             ></div>
           </button>
+
+          {/* Logo */}
           <div className="bg-[#009fad]">
             <Image
               src="/images/logo/yeti.svg"
@@ -79,15 +102,18 @@ const Header = () => {
             />
           </div>
         </div>
-        <Nav navItems={navItems} action={heandleSidebar} />
 
+        {/* Navigation */}
+        <Nav navItems={navItems} action={handleSidebar} />
         <Nav navItems={cartItems} anchorClass="text-2xl" />
+
+        {/* Mobile Cart Icon */}
         <div className="text-white text-2xl block xl:hidden">
           <IoCartOutline />
         </div>
       </div>
       <Categories />
-    </header>
+    </motion.header>
   );
 };
 
