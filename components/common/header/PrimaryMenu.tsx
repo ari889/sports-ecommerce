@@ -65,7 +65,7 @@ export default function PrimaryMenu({
               <IoMdClose />
             </button>
             <Image
-              src="/images/logo/sidenav-logo.svg"
+              src="/images/logo/Drais-logo-wt.png"
               alt="Logo"
               width={150}
               height={100}

@@ -76,7 +76,7 @@ const Footer = () => {
       </nav>
       <div className="flex flex-col sm:flex-row justify-between items-baseline px-[4.44vw] mt-24">
         <div>
-          <p>© Yeti Cycles 2025 All Rights Reserved.</p>
+          <p>© Drais Bicycles {new Date().getFullYear()}. All Rights Reserved.</p>
           <ul className="flex flex-row items-center gap-4 mt-7">
             <li>
               <a href="#" className="transition delay-75 hover:text-[#009fad]">

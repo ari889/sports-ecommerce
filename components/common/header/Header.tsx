@@ -93,12 +93,12 @@ const Header = () => {
           </button>
 
           {/* Logo */}
-          <div className="bg-[#009fad]">
+          <div>
             <Image
-              src="/images/logo/yeti.svg"
-              width={110}
-              height={42}
-              alt="Yeti Logo"
+              src="/images/logo/Drais-logo-wt.png"
+              width={150}
+              height={45}
+              alt="Drais Bicycle"
             />
           </div>
         </div>
