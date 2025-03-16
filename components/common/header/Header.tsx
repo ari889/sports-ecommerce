@@ -45,6 +45,7 @@ const Header = () => {
 
   const handleSidebar = (e: MouseEvent, category: Category) => {
     e.preventDefault();
+    console.log("Clicked...");
     if (category?.children?.length === 0) return;
     setCategories((prev) => [...prev, category]);
     setShowSideBar(true);
@@ -63,7 +64,7 @@ const Header = () => {
       initial={{ height: 82, backgroundColor: "rgba(0, 0, 0, 0)" }}
       animate={{
         height: scrolled ? 65 : 82,
-        backgroundColor: scrolled ? "rgba(0, 0, 0, 0.7)" : "rgba(0, 0, 0, 0)",
+        backgroundColor: scrolled ? "rgba(0, 0, 0, 0.3)" : "rgba(0, 0, 0, 0)",
       }}
       transition={{ duration: 0.3, ease: "easeOut" }}
     >
