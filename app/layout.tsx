@@ -1,6 +1,5 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "@/components/common/header/Header";
 import HeaderContextProvider from "@/providers/HeaderContextProvider";
 import Footer from "@/components/common/Footer";
 
@@ -24,7 +23,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${BrandonGrotesque.variable} antialiased`}>
         <HeaderContextProvider>
-          <Header />
           {children}
           <Footer />
         </HeaderContextProvider>

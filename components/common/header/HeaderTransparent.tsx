@@ -15,6 +15,7 @@ import data from "@/data/Categories.json";
 import { useHeaderContext } from "@/hooks/useHeaderContext";
 import { Category } from "@/types/category.types";
 import { HeaderElementType } from "@/types/header.types";
+import Link from "next/link";
 
 const navItems: HeaderElementType[] = [
   ...data,
@@ -28,7 +29,7 @@ const cartItems: HeaderElementType[] = [
   { id: 5, name: <IoCartOutline />, isLink: true, link: "/cart" },
 ];
 
-const Header = () => {
+const HeaderTransparent = () => {
   const { showSideBar, setCategories, setShowSideBar } = useHeaderContext();
   const [scrolled, setScrolled] = useState(false);
 
@@ -94,19 +95,23 @@ const Header = () => {
           </button>
 
           {/* Logo */}
-          <div>
+          <Link href="/">
             <Image
               src="/images/logo/Drais-logo-wt.png"
               width={150}
               height={45}
               alt="Drais Bicycle"
             />
-          </div>
+          </Link>
         </div>
 
         {/* Navigation */}
-        <Nav navItems={navItems} action={handleSidebar} />
-        <Nav navItems={cartItems} anchorClass="text-2xl" />
+        <Nav
+          navItems={navItems}
+          action={handleSidebar}
+          anchorClass="text-white"
+        />
+        <Nav navItems={cartItems} anchorClass="text-2xl text-white" />
 
         {/* Mobile Cart Icon */}
         <div className="text-white text-2xl block xl:hidden">
@@ -118,4 +123,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderTransparent;

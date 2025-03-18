@@ -52,7 +52,7 @@ const Nav = ({
             {item?.isLink ? (
               <Link
                 href={item?.link ?? "#"}
-                className={`text-white ${anchorClass} uppercase font-bold px-3 lg:px-5 leading-none`}
+                className={`${anchorClass} uppercase font-bold px-3 lg:px-5 leading-none`}
                 onMouseEnter={(event) => handleMouseEnter(index, event)}
                 onMouseLeave={handleMouseLeave}
               >
@@ -61,7 +61,7 @@ const Nav = ({
             ) : (
               <a
                 href="#"
-                className={`text-white ${anchorClass} uppercase font-bold px-5 leading-none`}
+                className={`${anchorClass} uppercase font-bold px-5 leading-none`}
                 onMouseEnter={(event) => handleMouseEnter(index, event)}
                 onMouseLeave={handleMouseLeave}
                 onClick={(e: MouseEvent) => action(e, item as Category)}
