@@ -1,13 +1,13 @@
+import CartItem from "@/components/pages/cart/CartItem";
 import Image from "next/image";
 import React from "react";
 import { MdLockOutline } from "react-icons/md";
-import { TiMinus, TiPlus } from "react-icons/ti";
 
 const CartPage = () => {
-  const isEmpty = true;
+  const isEmpty = false;
   return (
-    <div className="h-screen flex flex-row">
-      <div className="w-full px-[4.44vw]">
+    <div className="min-h-screen flex flex-col justify-between lg:flex-row">
+      <div className="flex-1 px-[4.44vw]">
         <h2 className="my-[3rem] text-black uppercase text-[3.5rem] font-bold leading-[1.25] tracking-[.0625em]">
           Cart
         </h2>
@@ -30,55 +30,9 @@ const CartPage = () => {
           <>
             <hr />
             <ul>
-              <li className="flex flex-row items-stretch py-[2rem] gap-5">
-                <div>
-                  <Image
-                    src="/images/cycles/1.png"
-                    alt="Product 1"
-                    width={100}
-                    height={100}
-                    className="aspect-square w-full h-auto"
-                  />
-                </div>
-                <div className="w-full">
-                  <a
-                    href="#"
-                    className=" font-bold uppercase text-black leading-[1.25] tracking-[.0625em] break-words"
-                  >
-                    160E TE3 2025
-                  </a>
-                  <p className="break-words font-[.875rem] text-dark capitalize">
-                    SM , black , DT Swiss HXC 1501 30MM Carbon Wheelset
-                  </p>
-                  <p className="text-[#909090] leading-[2] capitalize">
-                    SKU: B25160ESMPBAX2TE387W0
-                  </p>
-                  <h3 className="text-black font-bold leading-[1.25] tracking-[.0625em] uppercase">
-                    $13,000.00
-                  </h3>
-                </div>
-                <div className="text-right">
-                  <div className="flex fles-row justify-end items-center gap-4">
-                    <div className="flex flex-row justify-end items-center gap-2">
-                      <button className="text-black text-[.75rem] h-[1.5rem] w-[1.5rem] bg-[#f7f7f6] flex justify-center items-center">
-                        <TiMinus />
-                      </button>
-                      <p className="text-black text-[.75rem] font-bold">4</p>
-                      <button className="text-black text-[.75rem] h-[1.5rem] w-[1.5rem] bg-[#f7f7f6] flex justify-center items-center">
-                        <TiPlus />
-                      </button>
-                    </div>
-                    <h2 className="text-[#111] uppercase font-bold leading-[1.25] tracking-[.0625em] text-[1.5rem]">
-                      $52,000.00
-                    </h2>
-                  </div>
-                  <button className="uppercase text-[#666] cursor-pointer font-bold leading-[1.25] tracking-[.0625em] whitespace-nowrap text-[.75rem]">
-                    Remove
-                  </button>
-                </div>
-              </li>
+              <CartItem />
             </ul>
-            <div className="flex flex-row justify-between items-baseline py-[2.5rem]">
+            <div className="flex-row justify-between gap-3 items-baseline py-[2.5rem] hidden lg:flex">
               <div>
                 <h4 className="text-[1.5rem] font-bold uppercase leading-[1.25] tracking-[.0625em]">
                   Subtotal
@@ -91,28 +45,34 @@ const CartPage = () => {
                 $52,000.00
               </h2>
             </div>
+            <a
+              href="#"
+              className="block lg:hidden text-[.75rem] py-[2rem] text-[#666] font-bold leading-[1.25] tracking-[.0625em] uppercase text-center"
+            >
+              Shipping & Returns
+            </a>
           </>
         )}
       </div>
-      <div className="w-[700px] relative">
-        <div className="absolute top-0 left-0 w-full h-full bg-black/25 z-20"></div>
+      <div className="w-full lg:w-[500px] relative">
+        <div className="absolute top-0 left-0 w-full h-full bg-black/25 z-20 hidden lg:block"></div>
         <Image
           src="/images/cart/cart-bg.jpg"
           width={800}
           height={900}
           alt="Cart bg"
-          className="absolute top-0 left-0 w-full h-full object-cover z-10"
+          className="absolute top-0 left-0 w-full h-full object-cover z-10 hidden lg:block"
         />
-        <div className="absolute bottom-[4rem] right-[4rem] w-[calc(100%-8rem)] z-30">
+        <div className="static lg:absolute bottom-0 right-0 w-full z-30 p-[4vw] shadow-[0_0_4px_0_rgba(0,0,0,0.25)] lg:shadow-none">
           <div className="flex flex-row justify-between items-center mb-[.5rem]">
-            <h4 className="text-[1.5rem] font-bold leading-[1.25] tracking-[.0625em] uppercase text-white">
+            <h4 className="text-[1.5rem] font-bold leading-[1.25] tracking-[.0625em] uppercase text-black lg:text-white">
               Subtotal
             </h4>
-            <h5 className="text-[1.5rem] font-bold leading-[1.25] tracking-[.0625em] uppercase text-white">
+            <h5 className="text-[1.5rem] font-bold leading-[1.25] tracking-[.0625em] uppercase text-black lg:text-white">
               $52,000.00
             </h5>
           </div>
-          <p className="uppercase text-white text-[.75rem] font-bold leading-[1.25] tracking-[.0625em]">
+          <p className="uppercase text-black lg:text-white text-[.75rem] font-bold leading-[1.25] tracking-[.0625em]">
             Excludes Tax and Shipping
           </p>
           <button className="mt-[1.5rem] mb-[2rem] bg-[#009fad] text-white text-[1.125rem] font-bold tracking-[.0625em] leading-[1.2] uppercase whitespace-nowrap flex items-center justify-center text-center p-[calc(.75em+1px)2.5em] w-full transition delay-75 hover:bg-[#008894]">
