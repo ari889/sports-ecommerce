@@ -25,7 +25,7 @@ const navItems: HeaderElementType[] = [
 const cartItems: HeaderElementType[] = [
   { id: 2, name: <FaRegQuestionCircle />, isLink: true, link: "/faq" },
   { id: 3, name: <IoLocationOutline />, isLink: true, link: "/location" },
-  { id: 4, name: <FaRegUser />, isLink: true, link: "/profile" },
+  { id: 4, name: <FaRegUser />, isLink: true, link: "/login" },
   { id: 5, name: <IoCartOutline />, isLink: true, link: "/cart" },
 ];
 

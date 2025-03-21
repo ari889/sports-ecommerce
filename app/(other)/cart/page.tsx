@@ -12,7 +12,7 @@ const CartPage = () => {
         <h2 className="my-[3rem] text-black uppercase text-[3.5rem] font-bold leading-[1.25] tracking-[.0625em]">
           Cart
         </h2>
-        <p className="text-[#014955] font-[.875rem] fw-[500] mb-[1.5rem] p-[1rem] bg-[#e6eeee]">
+        <p className="text-[#014955] text-[.875rem] fw-[500] mb-[1.5rem] p-[1rem] bg-[#e6eeee]">
           Free Ground Shipping For U.S. Orders $125+ (excludes bikes)
         </p>
         {isEmpty ? (
