@@ -58,68 +58,70 @@ const HeaderTransparent = () => {
   };
 
   return (
-    <motion.header
-      className={`fixed top-0 left-0 w-full z-[400] transition-all duration-300 ease-out ${
-        scrolled ? "backdrop-blur-lg bg-black/70" : ""
-      }`}
-      initial={{ height: 82, backgroundColor: "rgba(0, 0, 0, 0)" }}
-      animate={{
-        height: scrolled ? 65 : 82,
-        backgroundColor: scrolled ? "rgba(0, 0, 0, 0.3)" : "rgba(0, 0, 0, 0)",
-      }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
-    >
-      <div className="h-full px-[4.44vw] flex flex-row justify-between items-center">
-        {/* Left Section */}
-        <div className="flex flex-row items-center gap-5">
-          {/* Sidebar Toggle Button */}
-          <button
-            onClick={handleOpenSidebar}
-            className="xl:hidden flex flex-col items-center justify-center w-10 h-10"
-          >
-            <div
-              className={`w-5 h-0.5 bg-white rounded-full transition-transform ${
-                showSideBar ? "rotate-45 translate-y-1.5" : ""
-              }`}
-            ></div>
-            <div
-              className={`w-5 h-0.5 bg-white rounded-full my-1 transition-opacity ${
-                showSideBar ? "opacity-0" : "opacity-100"
-              }`}
-            ></div>
-            <div
-              className={`w-5 h-0.5 bg-white rounded-full transition-transform ${
-                showSideBar ? "-rotate-45 -translate-y-1.5" : ""
-              }`}
-            ></div>
-          </button>
+    <>
+      <motion.header
+        className={`fixed top-0 left-0 w-full z-[400] transition-all duration-300 ease-out ${
+          scrolled ? "backdrop-blur-lg bg-black/70" : ""
+        }`}
+        initial={{ height: 82, backgroundColor: "rgba(0, 0, 0, 0)" }}
+        animate={{
+          height: scrolled ? 65 : 82,
+          backgroundColor: scrolled ? "rgba(0, 0, 0, 0.3)" : "rgba(0, 0, 0, 0)",
+        }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+      >
+        <div className="h-full px-[4.44vw] flex flex-row justify-between items-center">
+          {/* Left Section */}
+          <div className="flex flex-row items-center gap-5">
+            {/* Sidebar Toggle Button */}
+            <button
+              onClick={handleOpenSidebar}
+              className="xl:hidden flex flex-col items-center justify-center w-10 h-10"
+            >
+              <div
+                className={`w-5 h-0.5 bg-white rounded-full transition-transform ${
+                  showSideBar ? "rotate-45 translate-y-1.5" : ""
+                }`}
+              ></div>
+              <div
+                className={`w-5 h-0.5 bg-white rounded-full my-1 transition-opacity ${
+                  showSideBar ? "opacity-0" : "opacity-100"
+                }`}
+              ></div>
+              <div
+                className={`w-5 h-0.5 bg-white rounded-full transition-transform ${
+                  showSideBar ? "-rotate-45 -translate-y-1.5" : ""
+                }`}
+              ></div>
+            </button>
 
-          {/* Logo */}
-          <Link href="/">
-            <Image
-              src="/images/logo/Drais-logo-wt.png"
-              width={150}
-              height={45}
-              alt="Drais Bicycle"
-            />
-          </Link>
+            {/* Logo */}
+            <Link href="/">
+              <Image
+                src="/images/logo/Drais-logo-wt.png"
+                width={150}
+                height={45}
+                alt="Drais Bicycle"
+              />
+            </Link>
+          </div>
+
+          {/* Navigation */}
+          <Nav
+            navItems={navItems}
+            action={handleSidebar}
+            anchorClass="text-white"
+          />
+          <Nav navItems={cartItems} anchorClass="text-2xl text-white" />
+
+          {/* Mobile Cart Icon */}
+          <div className="text-white text-2xl block xl:hidden">
+            <IoCartOutline />
+          </div>
         </div>
-
-        {/* Navigation */}
-        <Nav
-          navItems={navItems}
-          action={handleSidebar}
-          anchorClass="text-white"
-        />
-        <Nav navItems={cartItems} anchorClass="text-2xl text-white" />
-
-        {/* Mobile Cart Icon */}
-        <div className="text-white text-2xl block xl:hidden">
-          <IoCartOutline />
-        </div>
-      </div>
+      </motion.header>
       <Categories />
-    </motion.header>
+    </>
   );
 };
 

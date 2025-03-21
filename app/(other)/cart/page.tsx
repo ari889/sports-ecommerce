@@ -76,12 +76,13 @@ const CartPage = () => {
               Checkout
             </span>
           </button>
-          <Button className="text-white text-[.75rem] whitespace-nowrap text-center table mt-16 mb-5 mx-auto">
+          <Button
+            className="text-[.75rem] whitespace-nowrap text-center table mt-16 mb-5 mx-auto"
+            color="#fff"
+            hoveredColor="#fff"
+          >
             Shipping & Returns
           </Button>
-          {/* <p className="uppercase  cursor-pointer font-bold leading-[1.25] tracking-[.0625em] whitespace-nowrap w-full text-center block mt-16 mb-5">
-            Shipping & Returns
-          </p> */}
         </div>
       </div>
     </div>

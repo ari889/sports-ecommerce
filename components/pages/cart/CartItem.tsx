@@ -1,10 +1,11 @@
 import Image from "next/image";
 import React from "react";
 import CartStock from "./CartStock";
+import Button from "@/components/common/Button";
 
 const CartItem = () => {
   return (
-    <li className="flex flex-row items-stretch py-[2rem] gap-5">
+    <li className="flex flex-row justify-between items-stretch py-[2rem] gap-5">
       <div className="flex flex-col sm:flex-row justify-between gap-5">
         <div className="min-w-[100px]">
           <Image
@@ -41,9 +42,14 @@ const CartItem = () => {
             $52,000.00
           </h2>
         </div>
-        <button className="uppercase text-[#666] cursor-pointer font-bold leading-[1.25] tracking-[.0625em] whitespace-nowrap text-[.75rem]">
+        <Button
+          className="text-[.75rem]"
+          color="#666"
+          hoveredColor="#009fad"
+          type="button"
+        >
           Remove
-        </button>
+        </Button>
       </div>
     </li>
   );

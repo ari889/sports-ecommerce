@@ -24,7 +24,11 @@ const Banner = () => {
             <h1 className="text-white text-[5vw] uppercase font-bold leading-[1.5em] tracking-[0.2em] pl-14">
               A tribute to our friend - Remembering Matt Opperman
             </h1>
-            <Button className="w-auto text-white text-[1.5rem] mt-[40vh]">
+            <Button
+              className="w-auto text-[1.5rem] mt-[40vh]"
+              color="#fff"
+              hoveredColor="#fff"
+            >
               Read Now
             </Button>
           </div>
