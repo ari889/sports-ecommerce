@@ -1,5 +1,6 @@
 import Image from "next/image";
 import blogs from "@/data/Blogs.json";
+import Button from "@/components/common/Button";
 
 const Blogs = () => {
   return (
@@ -24,11 +25,7 @@ const Blogs = () => {
             <h1 className="text-white block text-[max(1.75rem,min(3vw,2.5rem))] uppercase font-bold leading-[1.25em] tracking-[.2em]">
               {blog?.title}
             </h1>
-            <button className="text-xl text-white mt-[1.25rem] font-bold uppercase pb-[.25em] whitespace-nowrap tracking-[.0625em] overflow-hidden relative group">
-              Learn Now
-              <span className="h-[2px] w-full block bg-white mt-1 absolute left-0 bottom-0 group-hover:left-full transition-all duration-300 ease-out"></span>
-              <span className="h-[2px] w-full block bg-white mt-1 absolute -left-full bottom-0 group-hover:left-0 transition-all duration-300 ease-in delay-300"></span>
-            </button>
+            <Button className="text-xl text-white">Learn Now</Button>
           </div>
         </div>
       ))}

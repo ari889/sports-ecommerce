@@ -6,4 +6,12 @@
   .container {
     @apply max-w-[1170px] mx-auto;
   }
+
+  .custom-pagination .swiper-pagination-bullet {
+    @apply w-4 h-4 bg-gray-400 opacity-75 transition-all;
+  }
+
+  .custom-pagination .swiper-pagination-bullet-active {
+    @apply bg-blue-500 scale-125;
+  }
 }

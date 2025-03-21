@@ -1,3 +1,4 @@
+import Button from "@/components/common/Button";
 import CartItem from "@/components/pages/cart/CartItem";
 import Image from "next/image";
 import React from "react";
@@ -19,12 +20,9 @@ const CartPage = () => {
             <h1 className="text-dark uppercase text-[1.125rem] font-bold leading-[1.25] tracking-[.0625em] mb-[2rem]">
               Your cart is currently empty
             </h1>
-            <a
-              href="#"
-              className="bg-black text-[#fffdfa] uppercase font-bold text-[1.125rem] leading-[1.2] tracking-[.0625em] whitespace-nowrap text-center p-[calc(.75em+1px)2.5em]"
-            >
+            <Button className="text-[#fffdfa] text-[1.125rem]">
               Continue Shopping
-            </a>
+            </Button>
           </div>
         ) : (
           <>
@@ -45,12 +43,9 @@ const CartPage = () => {
                 $52,000.00
               </h2>
             </div>
-            <a
-              href="#"
-              className="block lg:hidden text-[.75rem] py-[2rem] text-[#666] font-bold leading-[1.25] tracking-[.0625em] uppercase text-center"
-            >
+            <Button className="text-[#666] block lg:hidden text-[.75rem] text-center mx-auto mb-5 border-[#666]">
               Shipping & Returns
-            </a>
+            </Button>
           </>
         )}
       </div>
@@ -81,9 +76,12 @@ const CartPage = () => {
               Checkout
             </span>
           </button>
-          <p className="uppercase text-white text-[.75rem] cursor-pointer font-bold leading-[1.25] tracking-[.0625em] whitespace-nowrap w-full text-center block mt-16 mb-5">
+          <Button className="text-white text-[.75rem] whitespace-nowrap text-center table mt-16 mb-5 mx-auto">
             Shipping & Returns
-          </p>
+          </Button>
+          {/* <p className="uppercase  cursor-pointer font-bold leading-[1.25] tracking-[.0625em] whitespace-nowrap w-full text-center block mt-16 mb-5">
+            Shipping & Returns
+          </p> */}
         </div>
       </div>
     </div>
