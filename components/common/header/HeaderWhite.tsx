@@ -61,7 +61,7 @@ const HeaderWhite = () => {
     <>
       <motion.header
         className={`sticky top-0 left-0 w-full z-[400] transition-all duration-300 ease-out ${
-          scrolled ? "backdrop-blur-lg bg-black/70" : ""
+          scrolled ? "backdrop-blur-lg bg-black/70" : "bg-white"
         }`}
         initial={{ height: 82, backgroundColor: "rgba(255, 255, 255, 1)" }}
         animate={{
@@ -99,13 +99,21 @@ const HeaderWhite = () => {
 
             {/* Logo */}
             <Link href="/">
-              <Image
-                src="/images/logo/Drais-logo-wt.png"
-                width={150}
-                height={45}
-                alt="Drais Bicycle"
-                className="bg-black p-3"
-              />
+              {scrolled ? (
+                <Image
+                  src="/images/logo/Drais-logo-wt.png"
+                  width={150}
+                  height={45}
+                  alt="Drais Bicycle"
+                />
+              ) : (
+                <Image
+                  src="/images/logo/Drais-logo-bk.png"
+                  width={150}
+                  height={45}
+                  alt="Drais Bicycle"
+                />
+              )}
             </Link>
           </div>
 
@@ -113,9 +121,12 @@ const HeaderWhite = () => {
           <Nav
             navItems={navItems}
             action={handleSidebar}
-            anchorClass="text-black"
+            anchorClass={scrolled ? "text-white" : "text-black"}
           />
-          <Nav navItems={cartItems} anchorClass="text-2xl text-black" />
+          <Nav
+            navItems={cartItems}
+            anchorClass={scrolled ? "text-white text-2xl" : "text-black text-2xl"}
+          />
 
           {/* Mobile Cart Icon */}
           <div className="text-black text-2xl block xl:hidden">
