@@ -1,13 +1,12 @@
+import data from "@/data/Categories.json";
+import { Category } from "@/types/category.types";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import React, { MouseEvent } from "react";
+import Link from "next/link";
+import React, { MouseEvent, useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { IoArrowBack } from "react-icons/io5";
-import data from "@/data/Categories.json";
 import SubMenu from "./SubMenu";
-import { Category } from "@/types/category.types";
-import { AnimatePresence } from "framer-motion";
-import { motion } from "framer-motion";
-import Link from "next/link";
 
 export default function PrimaryMenu({
   categories,
@@ -18,7 +17,17 @@ export default function PrimaryMenu({
   setCategories: React.Dispatch<React.SetStateAction<Category[]>>;
   closeSidebar: (e: MouseEvent) => void;
 }) {
+  const [deviceWidth, setDeviceWidth] = useState<number>(0);
   const selectedCategory = categories[0];
+
+  useEffect(() => {
+    const updateWidth = () => {
+      setDeviceWidth(window.innerWidth);
+    };
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
 
   const handleSelectedCategory = (
     e: MouseEvent,
@@ -118,68 +127,112 @@ export default function PrimaryMenu({
                 </li>
               </ul>
               {/* Secondary Menu */}
-              <AnimatePresence>
-                {selectedCategory && (
-                  <div
-                    className={`absolute top-0 w-full h-full z-20 bg-[#31343b]`}
-                  >
-                    <motion.div
-                      initial={{ x: "-100%" }} // Start from off-screen (left)
-                      animate={{ x: selectedCategory ? "0%" : "-100%" }} // Slide in or out based on selectedCategory
-                      exit={{ x: "-100%" }} // Exit by sliding out to the left
-                      transition={{ duration: 0.3, ease: "easeInOut" }} // Set the transition duration and easing
+              {deviceWidth <= 1251 ? (
+                <AnimatePresence>
+                  {categories?.map((category) => (
+                    <div
+                      className={`absolute top-0 w-full h-full z-20 bg-[#31343b]`}
+                      key={category?.id}
                     >
-                      <p className="text-2xl font-brandonGrotesque text-white uppercase pb-10 border-b border-b-[#494e58]">
-                        {selectedCategory?.name}
-                      </p>
-                      <ul className="my-10">
-                        {selectedCategory &&
-                          selectedCategory?.children?.map((category, index) => (
-                            <li key={category?.id}>
-                              <Link
-                                href="/"
-                                className={`block text-white transition delay-75 font-brandonGrotesque text-2xl ${
-                                  index !== 0 ? "my-7" : ""
-                                } hover:text-blue-500`}
-                                onClick={(e) =>
-                                  handleSelectedCategory(e, category, 1)
-                                }
-                              >
-                                {category?.name}
-                              </Link>
-                            </li>
-                          ))}
-                      </ul>
-                    </motion.div>
-                  </div>
-                )}
-              </AnimatePresence>
+                      <motion.div
+                        initial={{ x: "-100%" }} // Start from off-screen (left)
+                        animate={{ x: category ? "0%" : "-100%" }} // Slide in or out based on category
+                        exit={{ x: "-100%" }} // Exit by sliding out to the left
+                        transition={{ duration: 0.3, ease: "easeInOut" }} // Set the transition duration and easing
+                      >
+                        <p className="text-2xl font-brandonGrotesque text-white uppercase pb-10 border-b border-b-[#494e58]">
+                          {category?.name}
+                        </p>
+                        <ul className="my-10">
+                          {category &&
+                            category?.children?.map((category, index) => (
+                              <li key={category?.id}>
+                                <Link
+                                  href="/"
+                                  className={`block text-white transition delay-75 font-brandonGrotesque text-2xl ${
+                                    index !== 0 ? "my-7" : ""
+                                  } hover:text-blue-500`}
+                                  onClick={(e) =>
+                                    handleSelectedCategory(e, category, 1)
+                                  }
+                                >
+                                  {category?.name}
+                                </Link>
+                              </li>
+                            ))}
+                        </ul>
+                      </motion.div>
+                    </div>
+                  ))}
+                </AnimatePresence>
+              ) : (
+                <AnimatePresence>
+                  {selectedCategory && (
+                    <div
+                      className={`absolute top-0 w-full h-full z-20 bg-[#31343b]`}
+                    >
+                      <motion.div
+                        initial={{ x: "-100%" }} // Start from off-screen (left)
+                        animate={{ x: selectedCategory ? "0%" : "-100%" }} // Slide in or out based on selectedCategory
+                        exit={{ x: "-100%" }} // Exit by sliding out to the left
+                        transition={{ duration: 0.3, ease: "easeInOut" }} // Set the transition duration and easing
+                      >
+                        <p className="text-2xl font-brandonGrotesque text-white uppercase pb-10 border-b border-b-[#494e58]">
+                          {selectedCategory?.name}
+                        </p>
+                        <ul className="my-10">
+                          {selectedCategory &&
+                            selectedCategory?.children?.map(
+                              (category, index) => (
+                                <li key={category?.id}>
+                                  <Link
+                                    href="/"
+                                    className={`block text-white transition delay-75 font-brandonGrotesque text-2xl ${
+                                      index !== 0 ? "my-7" : ""
+                                    } hover:text-blue-500`}
+                                    onClick={(e) =>
+                                      handleSelectedCategory(e, category, 1)
+                                    }
+                                  >
+                                    {category?.name}
+                                  </Link>
+                                </li>
+                              )
+                            )}
+                        </ul>
+                      </motion.div>
+                    </div>
+                  )}
+                </AnimatePresence>
+              )}
             </div>
           </div>
         </div>
       </div>
       {/* Sub Menu */}
-      <AnimatePresence mode="popLayout">
-        {categories?.length > 1 &&
-          categories
-            ?.slice(1, categories?.length)
-            ?.map((category: Category, index: number) => (
-              <motion.div
-                initial={{ x: -100, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: -100, opacity: 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="bg-[#31343b] h-full w-[calc(320px+16px*2+64px)] border-l border-l-[#494e58]"
-                key={category?.id}
-              >
-                <SubMenu
-                  selectedSubCategory={category}
-                  handleSelectedSubCategory={handleSelectedCategory}
-                  index={index}
-                />
-              </motion.div>
-            ))}
-      </AnimatePresence>
+      {deviceWidth > 1251 && (
+        <AnimatePresence mode="popLayout">
+          {categories?.length > 1 &&
+            categories
+              ?.slice(1, categories?.length)
+              ?.map((category: Category, index: number) => (
+                <motion.div
+                  initial={{ x: -100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: -100, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="bg-[#31343b] h-full w-[calc(320px+16px*2+64px)] border-l border-l-[#494e58]"
+                  key={category?.id}
+                >
+                  <SubMenu
+                    selectedSubCategory={category}
+                    handleSelectedSubCategory={handleSelectedCategory}
+                    index={index}
+                  />
+                </motion.div>
+              ))}
+        </AnimatePresence>
+      )}
     </motion.div>
   );
 }
