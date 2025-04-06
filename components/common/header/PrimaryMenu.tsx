@@ -88,7 +88,7 @@ export default function PrimaryMenu({
                 {data?.map((category: Category, index: number) => (
                   <li key={category?.id}>
                     <Link
-                      href="/"
+                      href={category?.url || ""}
                       className={`block text-white transition delay-75 uppercase font-brandonGrotesque text-2xl ${
                         index !== 0 ? "my-7" : ""
                       } hover:text-blue-500`}

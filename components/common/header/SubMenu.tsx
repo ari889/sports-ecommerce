@@ -32,7 +32,7 @@ export default function SubMenu({
         {selectedSubCategory?.children?.map((category) => (
           <li key={category?.id}>
             <Link
-              href="/"
+              href={category?.url || "/"}
               className="block text-white transition delay-75 font-brandonGrotesque text-xl py-3 hover:text-blue-500"
               onClick={(e) => handleSelectedSubCategory(e, category, index + 2)}
             >

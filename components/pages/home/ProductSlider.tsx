@@ -1,15 +1,16 @@
 "use client";
 
-import { Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
 import cycles from "@/data/Slider.json";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/effect-coverflow";
+import Link from "next/link";
 import { useState } from "react";
 import { GrNext, GrPrevious } from "react-icons/gr";
-import { AnimatePresence, motion } from "framer-motion";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const ProductSlider = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -31,18 +32,20 @@ const ProductSlider = () => {
       >
         {cycles.map((cycle, index) => (
           <SwiperSlide key={cycle?.id}>
-            <div className="w-full aspect-video relative">
-              {index !== activeIndex && (
-                <div className="absolute top-0 left-0 w-full h-full bg-white opacity-50"></div>
-              )}
-              <Image
-                src={cycle?.path}
-                alt={`Slide ${index + 1}`}
-                className="w-full h-full object-cover"
-                width={1000}
-                height={700}
-              />
-            </div>
+            <Link href={'/bikes/1'}>
+              <div className="w-full aspect-video relative">
+                {index !== activeIndex && (
+                  <div className="absolute top-0 left-0 w-full h-full bg-white opacity-50"></div>
+                )}
+                <Image
+                  src={cycle?.path}
+                  alt={`Slide ${index + 1}`}
+                  className="w-full h-full object-cover"
+                  width={1000}
+                  height={700}
+                />
+              </div>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>

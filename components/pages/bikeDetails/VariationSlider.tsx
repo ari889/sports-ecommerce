@@ -5,6 +5,7 @@ import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
+import Link from "next/link";
 
 const VariationSlider = () => {
   const [activeSlide, setActiveSlide] = useState<number>(0);
@@ -59,12 +60,12 @@ const VariationSlider = () => {
           </div>
         ))}
       </div>
-      <a
-        href="#"
+      <Link
+        href={'/bikes/1/buy'}
         className="mt-[4rem] mb-[5rem] table mx-auto bg-[#111] text-center text-white text-[1.125rem] font-bold tracking-[.0625em] leading-[1.2] uppercase p-[calc(.75em+1px)2.5em]"
       >
         Configure & Buy
-      </a>
+      </Link>
     </div>
   );
 };

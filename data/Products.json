@@ -1,0 +1,78 @@
+[{
+        "id": "1",
+        "name": "SCOTT SPARK RC SL BIKE",
+        "image": "/images/products/bikes-1.png",
+        "isNew": false,
+        "slug": "/bikes/scott-spark-rc-sl-bike"
+    },
+    {
+        "id": "2",
+        "name": "SCOTT SPARK RC WORLD CUP EVO BIKE",
+        "image": "/images/products/bikes-1.png",
+        "isNew": true,
+        "slug": "/bikes/scott-spark-rc-sl-bike"
+    },
+    {
+        "id": "3",
+        "name": "TREK FUEL EX 9.9 XTR",
+        "image": "/images/products/bikes-2.png",
+        "isNew": true,
+        "slug": "/bikes/trek-fuel-ex-9-9-xtr"
+    },
+    {
+        "id": "4",
+        "name": "SPECIALIZED S-WORKS EPIC",
+        "image": "/images/products/bikes-3.png",
+        "isNew": false,
+        "slug": "/bikes/specialized-s-works-epic"
+    },
+    {
+        "id": "5",
+        "name": "CANYON LUX TRAIL CF 9",
+        "image": "/images/products/bikes-4.png",
+        "isNew": true,
+        "slug": "/bikes/canyon-lux-trail-cf-9"
+    },
+    {
+        "id": "6",
+        "name": "SANTA CRUZ MEGATOWER CC XO1",
+        "image": "/images/products/bikes-5.png",
+        "isNew": false,
+        "slug": "/bikes/santa-cruz-megatower-cc-xo1"
+    },
+    {
+        "id": "7",
+        "name": "YETI SB150 TURQ SERIES",
+        "image": "/images/products/bikes-6.png",
+        "isNew": true,
+        "slug": "/bikes/yeti-sb150-turq-series"
+    },
+    {
+        "id": "8",
+        "name": "GIANT TRANCE X ADVANCED PRO 29",
+        "image": "/images/products/bikes-7.png",
+        "isNew": false,
+        "slug": "/bikes/giant-trance-x-advanced-pro-29"
+    },
+    {
+        "id": "9",
+        "name": "ORBEA OIZ M LTD",
+        "image": "/images/products/bikes-8.png",
+        "isNew": true,
+        "slug": "/bikes/orbea-oiz-m-ltd"
+    },
+    {
+        "id": "10",
+        "name": "IBIS RIPMO V2S XT",
+        "image": "/images/products/bikes-9.png",
+        "isNew": false,
+        "slug": "/bikes/ibis-ripmo-v2s-xt"
+    },
+    {
+        "id": "11",
+        "name": "NORCO SIGHT C SE",
+        "image": "/images/products/bikes-10.png",
+        "isNew": true,
+        "slug": "/bikes/norco-sight-c-se"
+    }
+]
