@@ -1,9 +1,9 @@
 "use client";
 
+import Button from "@/components/common/Button";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import { useState } from "react";
 import Select from "./Select";
-import Button from "@/components/common/Button";
 
 const RightSidebar = () => {
   const [scrolled, setScrolled] = useState<boolean>(false);
@@ -17,7 +17,7 @@ const RightSidebar = () => {
   });
   return (
     <div
-      className={`min-w-[600px] max-w-[600px] h-screen sticky transition-all delay-75 ${
+      className={`min-w-full lg:min-w-[600px] max-w-full lg:max-w-[600px] h-screen sticky transition-all delay-75 ${
         scrolled ? "top-[65px]" : "top-[82px]"
       } overflow-y-auto py-[2.5rem] px-[4.44vw]`}
     >
