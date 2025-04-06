@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React from "react";
 
 const FeaturedBanner = () => {
   return (
@@ -11,11 +10,11 @@ const FeaturedBanner = () => {
         alt="Banner 3"
         className="object-cover w-full h-full absolute top-0 left-0 p-[4.44vw] z-[20]"
       />
-      <div className="w-[23rem] py-[3rem] px-[2rem] bg-black absolute top-1/2 left-0 transform -translate-y-1/2 z-30 mx-[8.88vw]">
-        <h2 className="tracking-[.2em] leading-[1.5em] text-[1.5rem] text-white uppercase font-bold">
+      <div className="max-w-[23rem] py-[3rem] px-[2rem] bg-black absolute top-1/2 left-0 transform -translate-y-1/2 z-30 mx-[8.88vw]">
+        <h2 className="tracking-[.2em] leading-[1.5em] text-base sm:text-[1.5rem] text-white uppercase font-bold">
           ZERO REDUNDANT CARBON.
         </h2>
-        <p className="text-white mt-5 text-[1rem] leading-[2em]">
+        <p className="text-white mt-5 text-sm sm:text-[1rem] leading-[2em]">
           Custom ply shapes, critical material choice, intelligent draping
           methods, and smooth transitions between every carbon ply have
           eliminated redundant carbon, giving radical strength for super

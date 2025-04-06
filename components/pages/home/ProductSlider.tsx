@@ -32,7 +32,7 @@ const ProductSlider = () => {
       >
         {cycles.map((cycle, index) => (
           <SwiperSlide key={cycle?.id}>
-            <Link href={'/bikes/1'}>
+            <Link href={"/bikes/1"}>
               <div className="w-full aspect-video relative">
                 {index !== activeIndex && (
                   <div className="absolute top-0 left-0 w-full h-full bg-white opacity-50"></div>
@@ -51,21 +51,21 @@ const ProductSlider = () => {
       </Swiper>
       <AnimatePresence>
         <motion.div
-          className="absolute bottom-[6rem] left-1/2 transform -translate-x-1/2 text-black font-semibold z-10 uppercase text-[2rem] tracking-[.0625em]"
-          initial={{ y: 50, opacity: 0 }} // Initial state when text is not visible
+          className="absolute bottom-[4rem] w-full flex justify-center text-black font-semibold z-10 text-center uppercase text-base md:text-[2rem] tracking-[.0625em]"
+          initial={{ y: 50, opacity: 0 }}
           animate={{
             y: 0,
             opacity: 1,
-            transition: { type: "tween", duration: 0.5, ease: "easeInOut" }, // Use tween for smooth animation
-          }} // Text comes from bottom when the slide enters
+            transition: { type: "tween", duration: 0.5, ease: "easeInOut" },
+          }}
           exit={{
             y: -50,
             opacity: 0,
-            transition: { type: "tween", duration: 0.5, ease: "easeInOut" }, // Smooth exit animation
-          }} // Text goes to the top when the slide exits
-          key={activeIndex} // The key changes whenever the slide changes, triggering the animation
+            transition: { type: "tween", duration: 0.5, ease: "easeInOut" },
+          }}
+          key={activeIndex}
         >
-          {cycles[activeIndex]?.name} {/* Display current slide text */}
+          {cycles[activeIndex]?.name}
         </motion.div>
       </AnimatePresence>
 

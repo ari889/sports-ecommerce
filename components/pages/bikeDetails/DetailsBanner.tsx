@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React from "react";
 
 const DetailsBanner = () => {
   return (
@@ -13,9 +12,9 @@ const DetailsBanner = () => {
         className="object-cover w-full h-full absolute top-0 left-0 z-10"
         quality={100}
       />
-      {/* <div className="flex h-screen w-full text justify-center items-center uppercase relative z-30 text-center">
+      <div className="flex h-screen w-full text justify-center items-center uppercase relative z-30">
         <p className="text-white text-[10vw] font-bold tracking-[13vw]">160e</p>
-      </div> */}
+      </div>
       <div className="min-h-screen flex justify-center items-center relative z-30">
         <p className="text-white uppercase text-[1.92vw] max-w-[90%] w-[52ch] tracking-[.4em] leading-[2em] font-bold">
           WE DON’T PARTY UNTIL THE RACE IS OVER. SO WE TOOK OUR TIME TO DESIGN

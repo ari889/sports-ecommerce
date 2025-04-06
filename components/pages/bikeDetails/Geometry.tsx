@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Geometry = () => {
   const [checked, isChecked] = useState<boolean>(false);
@@ -28,7 +28,7 @@ const Geometry = () => {
             </label>
             mm
           </div>
-          <div className="flex flex-row justify-between relative">
+          <div className="flex flex-col md:flex-row justify-between relative">
             <div className="flex-1">
               <Image
                 src="/images/details/banner-5.jpg"
@@ -38,7 +38,7 @@ const Geometry = () => {
                 className="object-fit aspect-video w-full"
               />
             </div>
-            <div className="flex-1">
+            <div className="flex-1 overflow-x-auto">
               <table className="table-auto w-full">
                 <thead>
                   <tr>

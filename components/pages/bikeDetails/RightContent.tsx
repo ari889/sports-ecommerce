@@ -1,12 +1,11 @@
 import Image from "next/image";
-import React from "react";
 
 const RightContent = () => {
   return (
-    <div className="min-h-screen py-[9rem] bg-black">
-      <div className="pl-[8.88vw] pr-[11.1vw] flex flex-row justify-between items-center">
+    <div className="min-h-auto md:min-h-screen py-[9rem] bg-black">
+      <div className="pl-[8.88vw] pr-[11.1vw] flex flex-col-reverse md:flex-row justify-between items-center">
         {/* Left Image Section */}
-        <div className="flex-1 h-full">
+        <div className="flex-1 h-full md:mt-0 mt-[2rem]">
           <Image
             src="/images/details/banner-4.jpg"
             width={500}

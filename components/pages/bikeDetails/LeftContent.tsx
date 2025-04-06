@@ -1,10 +1,9 @@
 import Image from "next/image";
-import React from "react";
 
 const LeftContent = () => {
   return (
-    <div className="min-h-screen py-[9rem] bg-black">
-      <div className="pl-[8.88vw] pr-[11.1vw] flex flex-row justify-between items-stretch">
+    <div className="min-h-auto md:min-h-screen py-[9rem] bg-black">
+      <div className="pl-[8.88vw] pr-[11.1vw] flex flex-col md:flex-row justify-between items-stretch">
         <div className="flex-1">
           <h2 className="text-[4.8vw] font-bold text-white uppercase tracking-[.2em] leading-[1.5em]">
             IT’S WHAT’S NOT INSIDE THAT COUNTS.
@@ -16,7 +15,7 @@ const LeftContent = () => {
             with no downside on performance or bearing life.
           </p>
         </div>
-        <div className="flex-1">
+        <div className="flex-1 md:mt-0 mt-[2rem]">
           <Image
             src="/images/details/banner-4.jpg"
             width={500}

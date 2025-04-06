@@ -1,4 +1,3 @@
-import React from "react";
 import footer from "@/data/Footer.json";
 import Image from "next/image";
 import {
@@ -63,7 +62,7 @@ const Footer = () => {
               />
               English
             </p>
-            <div className="relative mt-auto min-w-[300px] group">
+            <div className="relative mt-auto min-w-full sm:min-w-[300px] group">
               <input
                 type="text"
                 className="px-3 py-2 bg-transparent focus:outline-none border-b-2 transition w-full delay-75 border-[#666] focus:border-white text-white placeholder:uppercase placeholder:font-bold placeholder:text-base"
@@ -75,9 +74,11 @@ const Footer = () => {
         </div>
       </nav>
       <div className="flex flex-col sm:flex-row justify-between items-baseline px-[4.44vw] mt-24">
-        <div>
-          <p>© Drais Bicycles {new Date().getFullYear()}. All Rights Reserved.</p>
-          <ul className="flex flex-row items-center gap-4 mt-7">
+        <div className="sm:w-auto w-full">
+          <p className="sm:text-left text-center">
+            © Drais Bicycles {new Date().getFullYear()}. All Rights Reserved.
+          </p>
+          <ul className="flex flex-row items-center justify-center sm:justify-start gap-4 mt-7">
             <li>
               <a href="#" className="transition delay-75 hover:text-[#009fad]">
                 Privacy Policy
@@ -95,7 +96,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <ul className="flex flex-row gap-7 justify-end text-2xl mt-10 lg:mt-0">
+        <ul className="flex flex-row gap-7 justify-center sm:justify-end text-2xl mt-10 sm:w-auto w-full lg:mt-0">
           <li>
             <a href="#" className="transition delay-75 hover:text-[#009fad]">
               <FaInstagram />
