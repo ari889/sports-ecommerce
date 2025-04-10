@@ -1,6 +1,5 @@
 import Button from "@/components/common/Button";
 import Image from "next/image";
-import React from "react";
 
 const Featured = () => {
   return (
@@ -19,7 +18,7 @@ const Featured = () => {
               width={800}
               height={1200}
               alt="Pin 1"
-              className="w-full absolute top-1/2 left-0 -translate-y-1/2 object-cover z-10 transition-transform duration-[800ms] ease-out delay-300 group-hover:scale-110"
+              className="w-full absolute top-1/2 left-0 -translate-y-1/2 object-cover z-10 transition transform duration-800 ease-out delay-300 group-hover:scale-110"
             />
             <div className="absolute bottom-0 left-0 w-full z-30 p-[4rem]">
               <p className="uppercase text-white mb-[1.5rem] text-wrap font-bold tracking-[.0625em] leading-[1.25]">
@@ -42,7 +41,7 @@ const Featured = () => {
               width={800}
               height={1200}
               alt="Pin 1"
-              className="w-full absolute top-1/2 left-0 -translate-y-1/2 object-cover z-10 transition-transform duration-[800ms] ease-out delay-300 group-hover:scale-110"
+              className="w-full absolute top-1/2 left-0 -translate-y-1/2 object-cover z-10 transition transform duration-800 ease-out delay-300 group-hover:scale-110"
             />
             <div className="absolute bottom-0 left-0 w-full z-30 p-[4rem]">
               <p className="uppercase text-white mb-[1.5rem] text-wrap font-bold tracking-[.0625em] leading-[1.25]">
