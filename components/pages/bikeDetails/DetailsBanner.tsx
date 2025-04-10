@@ -53,7 +53,7 @@ const DetailsBanner = () => {
             </p>
           </div>
           <div className="items-center flex flex-col justify-center sticky h-screen top-0 w-full z-30">
-            <p className="text-white uppercase text-[1.92vw] max-w-[90%] w-[52ch] tracking-[.4em] leading-[2em] font-bold">
+            <p className="text-white uppercase text-[4.42vw] md:text-[1.92vw] max-w-[90%] w-[52ch] tracking-[.4em] leading-[2em] font-bold">
               WE DON’T PARTY UNTIL THE RACE IS OVER. SO WE TOOK OUR TIME TO
               DESIGN AN e-MTB THE WAY A YETI e-MTB HAS TO BE DESIGNED: READY TO
               TOE THE LINE AT EWS-E RACES.
