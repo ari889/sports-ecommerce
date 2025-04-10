@@ -1,11 +1,11 @@
 "use client";
-import React, { useState, useRef } from "react";
-import { Pagination, Scrollbar } from "swiper/modules";
-import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
 import Image from "next/image";
 import Link from "next/link";
+import { useRef, useState } from "react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination, Scrollbar } from "swiper/modules";
+import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 
 const VariationSlider = () => {
   const [activeSlide, setActiveSlide] = useState<number>(0);
@@ -13,7 +13,7 @@ const VariationSlider = () => {
   const variations = ["bg-red-500", "bg-blue-500", "bg-green-500"];
 
   return (
-    <div className="p-[4.44vw]">
+    <div className="p-[4.44vw] relative z-40 bg-white">
       <Swiper
         onSwiper={(swiper) => (swiperRef.current = swiper)} // Store Swiper instance
         spaceBetween={50}
@@ -61,7 +61,7 @@ const VariationSlider = () => {
         ))}
       </div>
       <Link
-        href={'/bikes/1/buy'}
+        href={"/bikes/1/buy"}
         className="mt-[4rem] mb-[5rem] table mx-auto bg-[#111] text-center text-white text-[1.125rem] font-bold tracking-[.0625em] leading-[1.2] uppercase p-[calc(.75em+1px)2.5em]"
       >
         Configure & Buy
